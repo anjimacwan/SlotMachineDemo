@@ -29,9 +29,12 @@ module scenes {
             //Initialize array of bitmaps
             this._reels=new Array<createjs.Bitmap>();
             
-            for(var reel:number; reel<3; reel++)
+            for(var reel:number=0; reel<3; reel++)
             {
                 this._reels[reel]=new createjs.Bitmap(assets.getResult("Blank"));
+                this._reels[reel].x=216 + (reel*84);
+                this.addChild(this._reels[reel]);
+                console.log
             }
                 
             // add background image to the scene
@@ -143,9 +146,6 @@ module scenes {
             var reel:string[]= this._spinReels();
             
             this._reels[0].image= assets.getResult(reel[0]);
-            this._reels[0].x=216;
-            this._reels[0].y=220;
-            this.addChild(this._reels[0]);
             
             console.log(this.numChildren);
             /*console.log(reel[0]);
