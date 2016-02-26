@@ -66,7 +66,7 @@ var scenes;
                 outCome[spin] = Math.floor((Math.random() * 65) + 1);
                 switch (outCome[spin]) {
                     case this._checkRange(outCome[spin], 1, 27):
-                        betLine[spin] = "blank";
+                        betLine[spin] = "Blank";
                         this._blanks++;
                         break;
                     case this._checkRange(outCome[spin], 28, 37):
@@ -112,8 +112,11 @@ var scenes;
             console.log("Bet 100 Credit");
         };
         SlotMachine.prototype._spinButtonClick = function (event) {
-            console.log("Spin those reels!");
             console.log(this._reels());
+            var fruits = this._reels();
+            console.log(fruits[0]);
+            console.log(fruits[1]);
+            console.log(fruits[2]);
         };
         return SlotMachine;
     })(objects.Scene);

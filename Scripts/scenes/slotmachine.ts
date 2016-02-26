@@ -80,7 +80,7 @@ module scenes {
                 outCome[spin] = Math.floor((Math.random() * 65) + 1);
                 switch (outCome[spin]) {
                     case this._checkRange(outCome[spin], 1, 27):  // 41.5% probability
-                        betLine[spin] = "blank";
+                        betLine[spin] = "Blank";
                         this._blanks++;
                         break;
                     case this._checkRange(outCome[spin], 28, 37): // 15.4% probability
@@ -130,8 +130,12 @@ module scenes {
         }
 
         private _spinButtonClick(event: createjs.MouseEvent): void {
-            console.log("Spin those reels!");
             console.log(this._reels());
+            var fruits:string[]= this._reels();
+            
+            console.log(fruits[0]);
+            console.log(fruits[1]);
+            console.log(fruits[2]);
         }
     }
 }
