@@ -42,13 +42,14 @@ var scenes;
             this._spinButton = new objects.Button("SpinButton", 402, 382, false);
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this);
-            //Initialize array of bitmaps
+            // Initialize Array of Bitmaps 
             this._reels = new Array();
             for (var reel = 0; reel < 3; reel++) {
                 this._reels[reel] = new createjs.Bitmap(assets.getResult("Blank"));
                 this._reels[reel].x = 216 + (reel * 84);
+                this._reels[reel].y = 220;
                 this.addChild(this._reels[reel]);
-                console.log;
+                console.log("reel" + reel + " " + this._reels[reel]);
             }
             // Setup Background
             this._setupBackground("WhiteBackground");
@@ -122,12 +123,8 @@ var scenes;
         SlotMachine.prototype._spinButtonClick = function (event) {
             var bitmap = this._spinReels();
             for (var reel = 0; reel < 3; reel++) {
-                this._reels[reel].image = assets.getResult(bitmap[0]);
+                this._reels[reel].image = assets.getResult(bitmap[reel]);
             }
-            //console.log(this.numChildren);
-            /*console.log(reel[0]);
-            console.log(reel[1]);
-            console.log(reel[2]); */
         };
         return SlotMachine;
     })(objects.Scene);

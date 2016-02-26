@@ -24,6 +24,8 @@ var assetData:objects.Asset[] = [
     {id: "Bet10Button", src:"../../Assets/images/Bet10Button.png"},
     {id: "Bet100Button", src:"../../Assets/images/Bet100Button.png"},
     {id: "SpinButton", src:"../../Assets/images/SpinButton.png"},
+    {id: "BlackBackground", src:"../../Assets/images/BlackBackground.png"},
+    {id: "WhiteBackground", src:"../../Assets/images/WhiteBackground.png"},
     {id: "Blank", src:"../../Assets/images/Blank.png"},
     {id: "Grapes", src:"../../Assets/images/Grapes.png"},
     {id: "Banana", src:"../../Assets/images/Banana.png"},
@@ -31,9 +33,8 @@ var assetData:objects.Asset[] = [
     {id: "Orange", src:"../../Assets/images/Orange.png"},
     {id: "Bar", src:"../../Assets/images/Bar.png"},
     {id: "Bell", src:"../../Assets/images/Bell.png"},
-    {id: "Seven", src:"../../Assets/images/Seven.png"},
-    {id: "WhiteBackground", src:"../../Assets/images/WhiteBackground.png"},
-    {id: "BlackBackground", src:"../../Assets/images/BlackBackground.png"}
+    {id: "Seven", src:"../../Assets/images/Seven.png"}
+    
 ];
 
 function preload() {
@@ -119,9 +120,8 @@ function changeScene(): void {
             console.log("Starting GAME_OVER Scene");
             break;
     }
-
-
+    
     console.log(currentScene.numChildren);
 }
 
-window.onload=preload;
+window.onload = preload;
