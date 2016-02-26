@@ -7,7 +7,8 @@ module scenes {
         private _bet10Button: objects.Button;
         private _bet100Button: objects.Button;
         private _spinButton: objects.Button;
-
+        private _reels:createjs.Bitmap[];
+        
         private _grapes = 0;
         private _bananas = 0;
         private _oranges = 0;
@@ -24,7 +25,15 @@ module scenes {
         // PUBLIC METHODS +++++++++++++++++++++
         
         // Start Method
-        public start(): void {    
+        public start(): void {
+            //Initialize array of bitmaps
+            this._reels=new Array<createjs.Bitmap>();
+            
+            for(var reel:number; reel<3; reel++)
+            {
+                this._reels[reel]=new createjs.Bitmap(assets.getResult("Blank"));
+            }
+                
             // add background image to the scene
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
             this.addChild(this._backgroundImage);
@@ -72,7 +81,7 @@ module scenes {
         
         /* When this function is called it determines the betLine results.
         e.g. Bar - Orange - Banana */
-        private _reels(): string[] {
+        private _spinReels(): string[] {
             var betLine = [" ", " ", " "];
             var outCome = [0, 0, 0];
 
@@ -130,12 +139,19 @@ module scenes {
         }
 
         private _spinButtonClick(event: createjs.MouseEvent): void {
-            console.log(this._reels());
-            var fruits:string[]= this._reels();
             
-            console.log(fruits[0]);
-            console.log(fruits[1]);
-            console.log(fruits[2]);
+            var reel:string[]= this._spinReels();
+            
+            this._reels[0].image= assets.getResult(reel[0]);
+            this._reels[0].x=216;
+            this._reels[0].y=220;
+            this.addChild(this._reels[0]);
+            
+            console.log(this.numChildren);
+            /*console.log(reel[0]);
+            console.log(reel[1]);
+            console.log(reel[2]); */
+            
         }
     }
 }
