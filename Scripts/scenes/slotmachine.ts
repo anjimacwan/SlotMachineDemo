@@ -26,16 +26,6 @@ module scenes {
         
         // Start Method
         public start(): void {
-            //Initialize array of bitmaps
-            this._reels=new Array<createjs.Bitmap>();
-            
-            for(var reel:number=0; reel<3; reel++)
-            {
-                this._reels[reel]=new createjs.Bitmap(assets.getResult("Blank"));
-                this._reels[reel].x=216 + (reel*84);
-                this.addChild(this._reels[reel]);
-                console.log
-            }
                 
             // add background image to the scene
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
@@ -60,7 +50,18 @@ module scenes {
             this._spinButton = new objects.Button("SpinButton", 402, 382, false);
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this); 
-        
+            
+            //Initialize array of bitmaps
+            this._reels=new Array<createjs.Bitmap>();
+            
+            for(var reel:number=0; reel<3; reel++)
+            {
+                this._reels[reel]=new createjs.Bitmap(assets.getResult("Blank"));
+                this._reels[reel].x=216 + (reel*84);
+                this.addChild(this._reels[reel]);
+                console.log
+            }
+            
             // Setup Background
             this._setupBackground("WhiteBackground");
            
@@ -143,11 +144,15 @@ module scenes {
 
         private _spinButtonClick(event: createjs.MouseEvent): void {
             
-            var reel:string[]= this._spinReels();
+            var bitmap:string[]= this._spinReels();
             
-            this._reels[0].image= assets.getResult(reel[0]);
+            for(var reel:number=0; reel<3; reel++)
+            {
+            this._reels[reel].image= assets.getResult(bitmap[0]);
+            }
             
-            console.log(this.numChildren);
+            
+            //console.log(this.numChildren);
             /*console.log(reel[0]);
             console.log(reel[1]);
             console.log(reel[2]); */
